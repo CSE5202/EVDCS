@@ -1,0 +1,14 @@
+  {% if messages%}
+                    {% for message in  messages%}
+                    <div class="alert {{ message.tags }} alert-dismissible text-center " id="msg" role="alert">
+
+                    {{message}}
+
+            </div>
+            {% endfor %}
+            {% endif %}
+<script type="text/javascript">
+	setTimeout(function() {
+					$('#msg').fadeOut("slow");
+				}, 5000 );
+</script>
