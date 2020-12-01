@@ -1,0 +1,101 @@
+
+{%extends 'myapp/template/index1.html'%}
+
+
+{% block content1 %}
+
+
+ 
+
+
+
+   <div class="row" style="margin-left: 100px;margin-top: 50px;">
+          <div class="col-md-8">
+
+
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Register Vehicle</h3>
+              </div>
+              <div class="card-body">
+                <!-- Color Picker -->
+                <form role="form" method='post'  action="{%  url 'vehicleUpdate' vehicle.id  %} "style="margin-top: 10px;">
+           {% csrf_token %}  
+      <div class="card-body">
+         {% include "registration/messages.html" %}
+    <div class="form-row">  
+    <div class="form-group col-md-8" >
+        <label for="exampleInputEmail1">Vehicle Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Name" name="vehicle_name" value="{{ vehicle.vehicle_name }}">
+    </div>
+    
+   <div class="form-group col-md-4">
+      <label for="exampleInputEmail1">Driver id</label>
+     <select class="form-control" id="sel1" placeholder="" name="driver"value="{{ vehicle.driver }}">
+                                      
+                        {%for i in driver %}
+                                   
+                           <option>{{i.id}}</option>
+                       {% endfor %}
+                      </select>
+    </div>
+  </div>
+   <div class="form-row">
+  <div class="form-group col-md-7">
+      <label for="exampleInputEmail1">Plate No</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="plate_no" value="{{ vehicle.plate_no }}">
+    </div>
+
+<div class="form-group col-md-5">
+      <label for="exampleInputEmail1">Subcity id</label>
+      <select class="form-control" id="sel1" placeholder="" name="subcity" value="{{ vehicle.subcity }}">
+    </div>
+                                      
+                        {%for i in subcity %}
+                                   
+                           <option>{{i.id}}</option>
+                       {% endfor %}
+                      </select>
+    </div>
+  </div>
+  <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">model</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="" name="model"value="{{ vehicle.model }}">
+    </div>
+    
+  
+   
+  <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Vehicle SIze</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="" name="vehicle_size"value="{{ vehicle.vehicle_size }}">
+    </div>
+    </div>
+
+</div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col (left) -->
+          <div class="col-md-4">
+           
+            </div>
+            <!-- /.card -->
+
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content1 %}
+   

@@ -1,0 +1,61 @@
+
+{%extends 'myapp/template/index1.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">penalty lists </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                
+              
+               <tbody>
+                                                <tr>
+                                                    
+                                                    <th>vehicle_Plate</th>
+                                                    <th>date</th>
+                                                    <th>Penalty type</th>
+                                                    <th>trip_no</th>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <form action="{% url 'showpenality' %}" method="GET" value="">
+                                                {% csrf_token %}
+                                                        
+                                                {% for i in show %}
+                                                <tr>
+                                               
+                                                <td>{{i.vehicle_plate}}</td>
+                                                <td>{{i.reg_date}}</td>
+                                                <td>{{i.penalty_type}}</td>
+                                                <td>{{i.trip_no}}</td>
+                                                </tr>
+                                                
+                                                {% endfor%}
+                                                
+                                                
+                                                
+                                                    </form>
+                                                    
+                                                    
+
+                                                </tr>
+
+                                            </tbody>
+                
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}

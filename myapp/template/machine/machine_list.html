@@ -1,0 +1,61 @@
+
+{%extends 'myapp/template/index1.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Machines list </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                   <th>id</th>
+                  <th>Machine Id</th>
+                  <th>location Point</th>
+                  <th>Station Id</th>
+                 <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+               {%for v in machine%}
+                <tr>
+                    <td>{{v.id}}</td>
+                    <td>{{v.machine_id}}</td>
+                    <td>{{v.location}}</td>
+                    <td>{{v.station_id}}</td>
+                    
+
+                    <td>
+                <a href="{% url 'machineEdit' v.id %}" class="btn btn-warning">Edit</a>
+               <a href="{% url 'machineDelete' v.id %}" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?') ">Delete</a>
+                    </td>
+                </tr>
+                
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                  <tr>
+                   <th>id</th>
+                  <th>Machine Id</th>
+                  <th>location Point</th>
+                  <th>Station Id</th>
+                 <th>Action</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}
+   

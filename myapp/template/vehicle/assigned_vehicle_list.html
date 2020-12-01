@@ -1,0 +1,65 @@
+
+{%extends 'myapp/template/index1.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Routes lists </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Route Type</th>
+                 <th>length</th>
+                 <th>price</th>
+                 <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+               {%for r in route%}
+                <tr>
+                    <td>{{r.id}}</td>
+                     <td>{{r.source}}</td>
+                     <td>{{r.destination}}</td>
+                    <td>{{r.route_type}}</td>
+                   <td>{{r.length}}</td>
+                   <td>{{r.price}}</td>
+                      <td>
+                <a href="{% url 'routeEdit' r.id %}" class="btn btn-warning">Edit</a>
+               <a href="{% url 'routeDelete' r.id %}" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?') ">Delete</a>
+                    </td>
+                </tr>
+                
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                  <tr>
+                  <th>id</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Route Type</th>
+                 <th>length</th>
+                 <th>price</th>
+                 <th>Actions</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}
+   

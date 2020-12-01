@@ -9,8 +9,7 @@ from .forms import UserLoginForm,UserForm
 from django.contrib import messages 
 from .models import User
 def index(request):
-   text = """<h1>welcome to my app !</h1>"""
-   #return HttpResponse(text)
+
    return render(request, "myapp/template/login.html", {})
 # Create your views here.
 
@@ -20,19 +19,7 @@ def hello(request):
    
    daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
    return render(request, "myapp/template/hello.html", {"today" : today, "days_of_week" : daysOfWeek})
-"""def login_view1(request):
-    next=request.GET.get('next')
-    form=UserLoginForm(request.POST or None)
-    if form.is_valid():
-        username  = form.cleaned_data.get("username")
-        password  = form.cleaned_data.get("password")
-        user = authenticate(username=username, password=password)
-        login(request,user)
-        if next:
-            return redirect('/')
-    context = {'form':form,}
-    return render(request,'accounts/template/login.html', context)
-"""
+
 def login_view(request):
   username = request.POST['username']
   password = request.POST['password']
@@ -40,10 +27,12 @@ def login_view(request):
   user = authenticate(request, username=username, password=password)
   if user is not None:
     login(request, user)
+    if user.Roll=='superAdmin':
+      return redirect('/admin/') 
     if user.Roll=='cityAdmin':
       return render(request,'myapp/template/index1.html',{})
     elif user.Roll=='subcityAdmin':
-      return render(request,'myapp/template/index1.html',{})
+      return render(request,'myapp/template/index.html',{})
     else:
       return render(request,'myapp/template/index.html',{})
       

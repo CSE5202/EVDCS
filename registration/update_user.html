@@ -1,74 +1,84 @@
-
-
 {%extends 'myapp/template/index1.html'%}
 
 
 {% block content1 %}
 
-<div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-5">
-  	<div class="card card-success" style="margin-top: 10px;background-color: blue;">
+
+<div class="card card-success" style="margin-top:">
 
               <div class="card-header">
-                <h3 class="card-title">update user</h3>
+                <h3 class="card-title" style="text-align: center;">update user</h3>
               </div>
               <!-- /.card-header -->
-             {% include "registration/messages.html" %}
+             
+               
  
               </div>
-              <form role="form" action="{% url 'userUpdate' User_list.id %}" method='post'style="margin-top: 10px;background-color: #48D1CC;">
-            {% csrf_token %}  
-                <div class="card-body">
-                  <div class="form-group">
-                    
-                    <label for="exampleInputEmail1">first Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="first_name"value="{{ User_list.first_name }}">
-                  </div>
-                  <div class="form-group">
-                    
-                    <label for="exampleInputEmail1">Last Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="last_name"value="{{ User_list.last_name}}">
-                  </div>
-                  <div class="form-group">
-                    
-                    <label for="exampleInputEmail1">username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="username" value="{{ User_list.username }}">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">E-mail</label>
-                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email" value="{{ User_list.email }}" name="email">
-                  </div>
-                 
-                    <div class="form-group">
-                    <label for="sel1">Role</label>
-                    <select class="form-control" id="sel1" placeholder="Enetr user_type" name="Roll" value="{{ User_list.Roll}}" >
-                      <option>superAdmin</option>
+              
+                
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <form role="form" method='post' action="{% url 'userUpdate' User_list.id %}" style="margin-top: 10px;">
+           {% csrf_token %}  
+      <div class="card-body">
+         {% include "registration/messages.html" %}
+        <div class="form-row">
+      <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">first Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter First Name:" name="first_name"value="{{ User_list.first_name }}">
+        </div>
+  
+    <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Last Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Last Name:" name="last_name"value="{{ User_list.last_name}}">
+    </div>
+  </div>
+  
+ 
+  <div class="form-row">
+    <div class="form-group col-md-7">
+      <label for="exampleInputEmail1">username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="username" value="{{ User_list.username }}">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="sel1">Role</label>
+                    <select class="form-control" id="sel1" placeholder="Enetr user_type" name="Roll"value="{{ User_list.Roll}}" >
                       <option>cityAdmin</option>
                       <option>subcityAdmin</option>
                       <option>cityStaff</option>
                       <option>subcityStaff</option>
                     </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password">
-                  </div>
-                   
-                  </div>
-                  <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>-->
-             
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+    </div>
+   
+  </div>
+   <div class="form-group">
+   <label for="exampleInputPassword1">E-mail</label>
+   <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email"  name="email" value="{{ User_list.email }}">
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Password</label>
+           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password">
+        </div>
+  
+    <div class="form-group col-md-6">
+      <label for="exampleInputPassword1">confirm Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password2">
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+            
+                 
+               
+                 </div>
            
-  <div class="col-sm-3"></div>
+  <div class="col-sm-1"></div>
 </div>
 
-
+</div>
 {% endblock content1 %}
+   

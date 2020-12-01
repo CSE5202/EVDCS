@@ -5,47 +5,47 @@
 {% block content1 %}
 
 
-<div class="card card-success" style="margin-top:">
-
-              <div class="card-header">
-                <h3 class="card-title">register new user</h3>
-              </div>
-              <!-- /.card-header -->
-             
-               
  
+
+
+
+   <div class="row" style="margin-left: 100px;margin-top: 50px;">
+          <div class="col-md-8">
+
+
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Add New user</h3>
               </div>
-              
-                
-<div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-5">
-   
-              <form role="form" method='post'style="margin-top: 10px;background-color: #48D1CC;">
-            {% csrf_token %}  
-                <div class="card-body">
-                   {% include "registration/messages.html" %}
-                  <div class="form-group">
-                    
-                    <label for="exampleInputEmail1">first Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="first_name">
-                  </div>
-                  <div class="form-group">
-                    
-                    <label for="exampleInputEmail1">Last Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="last_name">
-                  </div>
-                  <div class="form-group">
-                    
-                    <label for="exampleInputEmail1">username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="username" >
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">E-mail</label>
-                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email"  name="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="sel1">Role</label>
+              <div class="card-body">
+                <!-- Color Picker -->
+
+
+ <form role="form" method='post'  action="{% url 'register' %} "style="margin-top: 10px;">
+  
+           {% csrf_token %}  
+      <div class="card-body">
+         {% include "registration/messages.html" %}
+        <div class="form-row">
+      <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">first Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter First Name:" name="first_name">
+        </div>
+  
+    <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Last Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Last Name:" name="last_name">
+    </div>
+  </div>
+  
+ 
+  <div class="form-row">
+    <div class="form-group col-md-7">
+      <label for="exampleInputEmail1">username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user name:" name="username" >
+    </div>
+    <div class="form-group col-md-5">
+      <label for="sel1">Role</label>
                     <select class="form-control" id="sel1" placeholder="Enetr user_type" name="Roll">
                       <option>superAdmin</option>
                       <option>cityAdmin</option>
@@ -53,30 +53,47 @@
                       <option>cityStaff</option>
                       <option>subcityStaff</option>
                     </select>
-                  </div>
-            
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password">
-                  </div>
-                   <div class="form-group">
-                    <label for="exampleInputPassword1">confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password2">
-                  </div>
-                  </div>
-                  <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>-->
-             
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-           
-  <div class="col-sm-3"></div>
+    </div>
+   
+  </div>
+   <div class="form-group">
+   <label for="exampleInputPassword1">E-mail</label>
+   <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email"  name="email">
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Password</label>
+           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password">
+        </div>
+  
+    <div class="form-group col-md-6">
+      <label for="exampleInputPassword1">confirm Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password2">
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
 </div>
+</form>
+  
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col (left) -->
+          <div class="col-md-4">
+           
+            </div>
+            <!-- /.card -->
+
+
+    </div>
+</div>
+
+
+
+
 
 
 {% endblock content1 %}

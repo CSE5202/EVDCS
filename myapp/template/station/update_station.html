@@ -1,0 +1,90 @@
+
+{%extends 'myapp/template/index1.html'%}
+
+
+{% block content1 %}
+
+
+ 
+
+
+
+   <div class="row" style="margin-left: 100px;margin-top: 50px;">
+          <div class="col-md-8">
+
+
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Add New Station</h3>
+              </div>
+              <div class="card-body">
+                <!-- Color Picker -->
+                <form role="form" method='post'  action="{% url 'stationUpdate' station.id %} "style="margin-top: 10px;">
+           {% csrf_token %}  
+      <div class="card-body">
+         
+   <div class="form-row">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Station Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Name" name="name"value="{{ station.station_name }}">
+    </div>
+    
+   <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">No of Roots</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="" name="Number_Of_Root"
+      value="{{ station.Number_Of_Root }}">
+    </div>
+  </div>
+   
+  <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Subcity ID</label>
+    
+      <select class="form-control" id="sel1" placeholder="" name="subcity_id">
+                      
+        {%for i in subcity%}
+                   
+           <option>{{i.id}}</option>
+       {% endfor %}
+      </select>
+  </div>
+
+
+  <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Longitude</label>
+      <input type="number"step=any class="form-control" id="exampleInputEmail1" placeholder="" name="long">
+    </div>
+  
+   
+  <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">latitude</label>
+      <input type="number" step=any min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="" name="lat">
+    </div>
+</div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col (left) -->
+          <div class="col-md-4">
+           
+            </div>
+            <!-- /.card -->
+
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content1 %}
+   

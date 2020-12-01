@@ -1,0 +1,152 @@
+
+{%extends 'myapp/template/index1.html'%}
+
+
+{% block content1 %}
+<div class="card">
+            <div class="card-header">
+              <h3 class="card-title">CURRENT DEPLOYMENTS</h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>Route Id</th>
+                  <th>Vehicle plate</th>
+                  <th>Round</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Length</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Created at</th>
+                 <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for i in current_deployment%}
+            <tr>
+                <th scope="row">{{i.id}}</td>
+                <td>{{i.route_id_id}}</td>
+                <td>{{i.vehicle_plate}}</td>
+                <td>{{i.rounde}}</td>
+                <td>{{i.source_name}}</td>
+                <td>{{i.deestination_name}}</td>
+                <td>{{i.route_length}}</td>
+                <td>{{i.route_price}}</td>
+                <td>{{i.route_type}}</td>
+                <td>{{i.reg_date}}</td>
+           
+
+                    <td>
+                <a href="#" class="btn btn-warning">Edit</a>
+               <a href="#" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?') ">Delete</a>
+                    </td>
+                </tr>
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                   <tr>
+                  <th>NO</th>
+                  <th>Route Id</th>
+                  <th>Vehicle plate</th>
+                  <th>Round</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Length</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Created at</th>
+                 <th>Action</th>
+                </tr>
+
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+<div class="card">
+            <div class="card-header">
+              <h3 class="card-title">PAST DEPLOYMENTS</h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                 <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>Route Id</th>
+                  <th>Vehicle plate</th>
+                  <th>Round</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Length</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Created at</th>
+                 <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for i in past_deployments%}
+            <tr>
+                <th scope="row">{{i.id}}</td>
+                <td>{{i.route_id_id}}</td>
+                <td>{{i.vehicle_plate}}</td>
+                <td>{{i.rounde}}</td>
+                <td>{{i.source_name}}</td>
+                <td>{{i.deestination_name}}</td>
+                <td>{{i.route_length}}</td>
+                <td>{{i.route_price}}</td>
+                <td>{{i.route_type}}</td>
+                <td>{{i.reg_date}}</td>
+           
+
+                    <td>
+                <a href="#" class="btn btn-warning">Edit</a>
+               <a href="#" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?') ">Delete</a>
+                    </td>
+                </tr>
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                   <tr>
+                  <th>NO</th>
+                  <th>Route Id</th>
+                  <th>Vehicle plate</th>
+                  <th>Round</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Length</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Created at</th>
+                 <th>Action</th>
+                </tr>
+
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+
+        
+{% endblock content1 %}
+   
