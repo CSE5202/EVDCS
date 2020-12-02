@@ -29,7 +29,7 @@ router.register(r'profile', rest_api.profileViewSet)
 router.register('assign-vehicle', rest_api.assignmentViewSet)
 router.register(r'Machine-data', rest_api.MachineDataViewSet,basename="Machine-data")
 router.register(r'deployment', rest_api.deploymentViewSet)
-router.register(r'attendance', rest_api.attendanceDataViewSet,basename="Machine-data")
+router.register(r'attendance', rest_api.attendanceDataViewSet)
 router.register(r'penalty', rest_api.penaltyDataViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
