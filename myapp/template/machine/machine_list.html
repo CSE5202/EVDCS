@@ -30,7 +30,7 @@
                 <tr>
                     <td>{{v.id}}</td>
                     <td>{{v.machine_id}}</td>
-                    <td>{{v.location}}</td>
+                    <td><a href="{% url 'location' v.machine_id%}" ><i class="fa fa-map-marker fa-2x" style="color: bluelight"></i></a>{{v.location}}</td>
                     <td>{{v.station_id}}</td>
                     
 

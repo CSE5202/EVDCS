@@ -109,6 +109,7 @@ class deployment(models.Model):
 	route_price = models.FloatField(null = True)
 	source_name = models.CharField(max_length=200, null = True)
 	deestination_name = models.CharField(max_length=200, null = True)
+	phone = models.CharField(max_length=200,null=True)
 
 	reg_date = models.DateTimeField('date registerd',default=datetime.datetime.now())
 	def __str__(self):

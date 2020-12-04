@@ -84,6 +84,9 @@ class penaltyDataViewSet(viewsets.ModelViewSet):
     queryset = penalty.objects.all()
     serializer_class = penaltySerializer
 
+class stationDataViewSet(viewsets.ModelViewSet):
+    queryset = station.objects.all()
+    serializer_class = stationSerializer
 
 
 class MachineDataViewSet(viewsets.ModelViewSet):

@@ -15,6 +15,9 @@ urlpatterns = [
     path('', views.index, name='index'),
  
     path('vehicle_location', views.vehicle_location,name='vehicle_location'),
+    path('location/<str:mid>', views.location,name='location'),
+
+
 
     path('deployment', deploy.deploy,name="deploy"),
     path('driver/register', views.driver_register, name='driver_register'),

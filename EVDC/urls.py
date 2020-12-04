@@ -31,6 +31,8 @@ router.register(r'Machine-data', rest_api.MachineDataViewSet,basename="Machine-d
 router.register(r'deployment', rest_api.deploymentViewSet)
 router.register(r'attendance', rest_api.attendanceDataViewSet)
 router.register(r'penalty', rest_api.penaltyDataViewSet)
+router.register(r'station', rest_api.stationDataViewSet)
+
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 

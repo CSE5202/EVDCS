@@ -299,6 +299,28 @@ def vehicle_location(request):
     context = {'map': m}
     return render(request, 'myapp/template/vehicle/vehicle_location.html', context)
 @login_required
+def location(request,locate):
+    i=machine.objects.get(machine_id=mid)
+    lat=i.location.centroid.y
+    lon=i.location.centroid.x
+    
+    m = folium.Map(location=[lat,lon], height=800,width=1200,zoom_start=13)
+
+      
+    v_id=i.machine_id
+    print(lat,lon)
+    mk=features.Marker([lat, lon])
+
+    pp = folium.Popup(v_id)
+    ic = features.Icon(color='blue',icon="fa-bus", prefix='fa')
+
+    mk.add_child(ic)
+    mk.add_child(pp)
+    m.add_child(mk)
+    m=m._repr_html_()
+    context = {'map': m}
+    return render(request, 'myapp/template/vehicle/vehicle_location.html', context)
+@login_required
 def machine_register(request):
   station_obj = station.objects.all()
  
