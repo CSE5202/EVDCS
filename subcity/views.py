@@ -285,8 +285,8 @@ def vehicle_location(request):
     for i in Latlon:
       lat=i.location.centroid.y
       lon=i.location.centroid.x
-      v_id=i.device_id
-      print(lat,lon)
+      v_id=i.vehicle_id.plate_no
+    
       mk=features.Marker([lat, lon])
 
       pp = folium.Popup(v_id)

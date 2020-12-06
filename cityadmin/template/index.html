@@ -1,5 +1,5 @@
 
-{%extends 'myapp/template/base_site.html'%}
+{%extends 'cityadmin/template/base_site.html'%}
 
 
 {% block content %}
@@ -102,18 +102,7 @@
                       <p>Machines list</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                     <i class="far fa-circle nav-icon"></i>
-                      <p>Machines location</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'Subcity_machine_register' %}" class="nav-link">
-                     <i class="far fa-circle nav-icon"></i>
-                      <p>Add machine</p>
-                    </a>
-                  </li>
+                
                   <li class="nav-item">
                     <a href="{% url 'Subcity_machine_data_list' %}" class="nav-link">
                      <i class="far fa-circle nav-icon"></i>
@@ -123,30 +112,7 @@
                 </ul>
               </li>
 
-               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                   
-                  <p style="color: white;">
-                   Users
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{% url 'registerList' %}" class="nav-link">
-                     
-                      <p>list of users</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'register' %} "class="nav-link">
-                     
-                      <p>register user</p>
-                    </a>
-                  </li>
-                 
-                </ul>
-              </li>
+             
                
                <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -223,62 +189,10 @@
                  
                 </ul>
               </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
               
-                  <p style="color: white;">
-                  Deployment
-                    <i class="right fas fa-angle-left"></i>
-
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{% url 'Subcity_deploy' %}" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                      <p>deploy vehicle</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                     <i class="far fa-circle nav-icon"></i>
-                      <p>view deployed vehicle</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                     <i class="far fa-circle nav-icon"></i>
-                      <p>update deployed vehicle</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
 
               
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                   
-                  <p style="color: white;">
-                   Attendance
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{% url 'Subcity_takeattendance' %}" class="nav-link">
-                     
-                      <p>take attendance</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'Subcity_showattendance' %}" class="nav-link">
-                     
-                      <p>view attendance of vehicle</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
+              
 
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -332,15 +246,7 @@
               </li>
           
          
-            <li class="nav-item">
-                  <a href="#" class="nav-link">
-                     
-                    <p style="color: white;">Waiting time</p>
-                  </a>
-              </li>
-              
-                </ul>
-             </li>
+            
           
           <li class="nav-item">
             <a href="/logout" class="nav-link">

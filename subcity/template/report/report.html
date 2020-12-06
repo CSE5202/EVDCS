@@ -1,5 +1,5 @@
 
-{%extends 'myapp/template/index.html'%}
+{%extends 'cityadmin/template/index.html'%}
 
 {% load static %}
 {% block content1 %}
@@ -73,7 +73,7 @@
             <!-- LINE CHART -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">ROUTE Chart</h3>
+                <h3 class="card-title">Daily number of request in route</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -212,7 +212,7 @@
             data: {
               labels: data.label2,
               datasets: [{
-                label: 'No of station',
+                label: 'No of requested',
                 backgroundColor: '#008080',
                 data: data.data2
               }]          
@@ -224,7 +224,7 @@
               },
               title: {
                 display: true,
-                text: 'Number of stations in Subcity'
+                text: 'Number of request in station'
               }
             }
           });

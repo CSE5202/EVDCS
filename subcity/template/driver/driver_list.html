@@ -1,5 +1,5 @@
 
-{%extends 'myapp/template/index.html'%}
+{%extends 'cityadmin/template/index.html'%}
 
 
 {% block content1 %}
@@ -22,18 +22,18 @@
                   <th>fistname</th>
                   <th>lastname</th>
                   <th>sex</th>
-                  <th>sex</th>
+                  <th>driver licence</th>
                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for p in profile %}
+             
               {% for d in driver %}
                 <tr>
-                    <td>{{p.id}}</td>
-                    <td>{{p.first_name}}</td>
-                    <td>{{p.phone}}</td>
-                    <td>{{p.sex}}</td>
+                    <td>{{d.id}}</td>
+                    <td>{d.profile_id.first_name}}</td>
+                    <td>{{d.profile_id.phone}}</td>
+                    <td>{{d.profile_id.sex}}</td>
           
             
                 <td>{{d.driver_licence}}</td>
@@ -49,10 +49,11 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                  <th>id</th>
+                    <th>id</th>
                   <th>fistname</th>
                   <th>lastname</th>
                   <th>sex</th>
+                  <th>driver licence</th>
                  <th>Action</th>
                 </tr>
 

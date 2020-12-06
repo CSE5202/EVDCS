@@ -35,7 +35,7 @@ User = get_user_model()
 # Create your views here.
 
 def index(request):
-   return render(request, "myapp/template/login.html", {})
+   return render(request, "cityadmin/template/login.html", {})
 @login_required
 def register(request):
   
@@ -44,13 +44,13 @@ def register(request):
 def driver_register(request):
   profile_obj = profile.objects.all()
   context = {'profile': profile_obj}
-  return render(request, 'myapp/template/driver/register_driver.html', context)
+  return render(request, 'cityadmin/template/driver/register_driver.html', context)
 @login_required
 def driver_list(request):
   profile_obj = profile.objects.all()
   drivers=driver.objects.all()
   context = {'profile': profile_obj,'driver':drivers}
-  return render(request, 'myapp/template/driver/driver_list.html', context)  
+  return render(request, 'cityadmin/template/driver/driver_list.html', context)  
 @login_required
 def driver_register_save(request):
   
@@ -62,19 +62,19 @@ def driver_register_save(request):
     date_registerd=request.POST['reg_date'] 
     drive=driver(profile_id=profile_obj,driver_licence=driver_license,licence_issued_date=issued_date,reg_date=date_registerd)
     drive.save()
-    return render(request, 'myapp/template/driver/register_driver.html')
+    return render(request, 'cityadmin/template/driver/register_driver.html')
   else:
-   return render(request, 'myapp/template/driver/register_driver.html', context)
+   return render(request, 'cityadmin/template/driver/register_driver.html', context)
 @login_required
 def subcity_register(request):
   profile_obj = profile.objects.all()
   context = {'profile': profile_obj}
-  return render(request, 'myapp/template/subcity/add_subcity.html', context)
+  return render(request, 'cityadmin/template/subcity/add_subcity.html', context)
 @login_required
 def subcity_list(request):
   Subcity_obj = subcity.objects.all()
   context = {'subcity': Subcity_obj}
-  return render(request, 'myapp/template/subcity/subcity_list.html', context) 
+  return render(request, 'cityadmin/template/subcity/subcity_list.html', context) 
 @login_required 
 def subcity_save(request):
   
@@ -89,12 +89,12 @@ def subcity_save(request):
     messages.success(request,'successfully subcity is added')
     return redirect('subcity_register')
   else:
-   return render(request, 'myapp/template/subcity/add_subcity.html', context)
+   return render(request, 'cityadmin/template/subcity/add_subcity.html', context)
 @login_required
 def subcity_edit(request,id):
     subcity_list = subcity.objects.get(id=id)
     context = {'subcity': subcity_list}
-    return render(request, 'myapp/template/subcity/update_subcity.html', context)
+    return render(request, 'cityadmin/template/subcity/update_subcity.html', context)
 @login_required
 def subcity_update(request,id):
     subcity_list = subcity.objects.get(id=id)
@@ -105,7 +105,7 @@ def subcity_update(request,id):
       f.save()
       messages.success(request, 'subcity updated successfully')
       return redirect('subcity_list')  
-    return render(request, 'myapp/template/subcity/update_subcity.html', context)
+    return render(request, 'cityadmin/template/subcity/update_subcity.html', context)
 @login_required
 def subcity_destroy(request,id):
     subcity_list = subcity.objects.get(id=id)
@@ -117,12 +117,12 @@ def subcity_destroy(request,id):
 def station_register(request):
   sub_obj = subcity.objects.all()
   context = {'subcity': sub_obj}
-  return render(request, 'myapp/template/station/add_station.html', context)
+  return render(request, 'cityadmin/template/station/add_station.html', context)
 @login_required
 def station_list(request):
   Subcity_obj = station.objects.all()
   context = {'station': Subcity_obj}
-  return render(request, 'myapp/template/station/station_list.html', context)
+  return render(request, 'cityadmin/template/station/station_list.html', context)
 @login_required
 def station_save(request):
   if request.method == 'POST':
@@ -137,13 +137,13 @@ def station_save(request):
     messages.success(request,'successfully station is added')
     return redirect('station_register')
   else:
-   return render(request, 'myapp/template/station/add_station.html', context)
+   return render(request, 'cityadmin/template/station/add_station.html', context)
 @login_required
 def station_edit(request,id):
     station_list = station.objects.get(id=id)
     Subcity_obj = station.objects.all()
     context = {'station': station_list,'subcity':Subcity_obj}
-    return render(request, 'myapp/template/station/update_station.html', context)
+    return render(request, 'cityadmin/template/station/update_station.html', context)
 @login_required
 def station_update(request,id):
   station_list = station.objects.get(id=id)
@@ -163,7 +163,7 @@ def station_update(request,id):
     messages.success(request,'successfully station is updated')
     return redirect('station_list')
   else:
-   return render(request, 'myapp/template/station/add_station.html', context)
+   return render(request, 'cityadmin/template/station/add_station.html', context)
 
 @login_required   
 def station_destroy(request,id):
@@ -179,12 +179,12 @@ def station_destroy(request,id):
 def route_register(request):
   station_obj = station.objects.all()
   context = {'station': station_obj}
-  return render(request, 'myapp/template/route/add_route.html', context)
+  return render(request, 'cityadmin/template/route/add_route.html', context)
 @login_required
 def route_list(request):
   Subcity_obj = route.objects.all()
   context = {'route': Subcity_obj}
-  return render(request, 'myapp/template/route/route_list.html', context)
+  return render(request, 'cityadmin/template/route/route_list.html', context)
 @login_required 
 def route_save(request):
   if request.method == 'POST':
@@ -195,14 +195,14 @@ def route_save(request):
           return redirect('route_register')
 
   else:
-   return render(request, 'myapp/template/route/add_route.html', context)
+   return render(request, 'cityadmin/template/route/add_route.html', context)
 
 @login_required
 def route_edit(request,id):
     station_obj = station.objects.all()
     route_list = route.objects.get(id=id)
     context = {'route': route_list,'station': station_obj}
-    return render(request, 'myapp/template/route/update_route.html', context)
+    return render(request, 'cityadmin/template/route/update_route.html', context)
 @login_required
 def route_update(request,id):
     route_list = route.objects.get(id=id)
@@ -213,7 +213,7 @@ def route_update(request,id):
       f.save()
       messages.success(request, 'route updated successfully')
       return redirect('route_list')  
-    return render(request, 'myapp/template/route/update_route.html', context)
+    return render(request, 'cityadmin/template/route/update_route.html', context)
 @login_required
 def route_destroy(request,id):
     route_list = route.objects.get(id=id)
@@ -225,18 +225,18 @@ def route_destroy(request,id):
 def Assigned_vehicle_list(request):
   vehicle_obj = vehicle.objects.all()
   context = {'vehicle': vehicle_obj}
-  return render(request, 'myapp/template/vehicle/assigned_vehicle_list.html', context)  
+  return render(request, 'cityadmin/template/vehicle/assigned_vehicle_list.html', context)  
 @login_required
 def vehicle_register(request):
   sub_obj = subcity.objects.all()
   driver_obj=driver.objects.all()
   context = {'subcity': sub_obj,'driver':driver_obj}
-  return render(request, 'myapp/template/vehicle/add_vehicle.html', context)
+  return render(request, 'cityadmin/template/vehicle/add_vehicle.html', context)
 @login_required
 def vehicle_list(request):
   vehicle_obj = vehicle.objects.all()
   context = {'vehicle': vehicle_obj}
-  return render(request, 'myapp/template/vehicle/vehicle_list.html', context)
+  return render(request, 'cityadmin/template/vehicle/vehicle_list.html', context)
 @login_required
 def vehicle_save(request):
   if request.method == 'POST':
@@ -247,7 +247,7 @@ def vehicle_save(request):
           return redirect('vehicle_list')
 
   else:
-   return render(request, 'myapp/template/vehicle/add_vehicle.html', context)
+   return render(request, 'cityadmin/template/vehicle/add_vehicle.html', context)
    
 @login_required
 def vehicle_edit(request,id):
@@ -255,7 +255,7 @@ def vehicle_edit(request,id):
     driver_obj=driver.objects.all()
     vehicle_list = vehicle.objects.get(id=id)
     context = {'vehicle': vehicle_list,'station': sub_obj,'subcity': sub_obj,'driver':driver_obj}
-    return render(request, 'myapp/template/vehicle/update_vehicle.html', context)
+    return render(request, 'cityadmin/template/vehicle/update_vehicle.html', context)
 
 @login_required
 def vehicle_update(request,id):
@@ -267,7 +267,7 @@ def vehicle_update(request,id):
       f.save()
       messages.success(request, 'vehicle updated successfully')
       return redirect('vehicle_list')  
-    return render(request, 'myapp/template/vehicle/update_vehicle.html', context)
+    return render(request, 'cityadmin/template/vehicle/update_vehicle.html', context)
 
 @login_required
 def vehicle_destroy(request,id):
@@ -285,8 +285,8 @@ def vehicle_location(request):
     for i in Latlon:
       lat=i.location.centroid.y
       lon=i.location.centroid.x
-      v_id=i.device_id
-      print(lat,lon)
+      v_id=i.vehicle_id
+    
       mk=features.Marker([lat, lon])
 
       pp = folium.Popup(v_id)
@@ -297,7 +297,7 @@ def vehicle_location(request):
       m.add_child(mk)
     m=m._repr_html_()
     context = {'map': m}
-    return render(request, 'myapp/template/vehicle/vehicle_location.html', context)
+    return render(request, 'cityadmin/template/vehicle/vehicle_location.html', context)
 @login_required
 def location(request,mid):
     i=machine.objects.get(machine_id=mid)
@@ -319,25 +319,25 @@ def location(request,mid):
     m.add_child(mk)
     m=m._repr_html_()
     context = {'map': m}
-    return render(request, 'myapp/template/vehicle/vehicle_location.html', context)
+    return render(request, 'cityadmin/template/vehicle/vehicle_location.html', context)
 @login_required
 @login_required
 def machine_register(request):
   station_obj = station.objects.all()
  
   context = {'station': station_obj}
-  return render(request, 'myapp/template/machine/add_machine.html', context)
+  return render(request, 'cityadmin/template/machine/add_machine.html', context)
 @login_required
 def machine_list(request):
   machine_obj = machine.objects.all()
   context = {'machine': machine_obj}
-  return render(request, 'myapp/template/machine/machine_list.html', context) 
+  return render(request, 'cityadmin/template/machine/machine_list.html', context) 
 
 @login_required 
 def machine_data_list(request):
   machine_obj = machine_data.objects.all()
   context = {'machine': machine_obj}
-  return render(request, 'myapp/template/machine/machine_data_list.html', context)
+  return render(request, 'cityadmin/template/machine/machine_data_list.html', context)
 
 @login_required
 def machine_save(request):
@@ -354,14 +354,14 @@ def machine_save(request):
     return redirect('machine_list')
 
   else:
-   return render(request, 'myapp/template/machine/add_machine.html', context)
+   return render(request, 'cityadmin/template/machine/add_machine.html', context)
 @login_required
 def machine_edit(request,id):
     sub_obj = subcity.objects.all()
     driver_obj=driver.objects.all()
     machine_list = machine.objects.get(id=id)
     context = {'machine': machine_list,'station': sub_obj,'subcity': sub_obj,'driver':driver_obj}
-    return render(request, 'myapp/template/machine/update_machine.html', context)
+    return render(request, 'cityadmin/template/machine/update_machine.html', context)
 @login_required   
 def machine_update(request,id):
     machine_list = machine.objects.get(id=id)
@@ -372,7 +372,7 @@ def machine_update(request,id):
       f.save()
       messages.success(request, 'machine updated successfully')
       return redirect('machine_list')  
-    return render(request, 'myapp/template/machine/update_machine.html', context)
+    return render(request, 'cityadmin/template/machine/update_machine.html', context)
 @login_required
 def machine_destroy(request,id):
     machine_list = machine.objects.get(id=id)

@@ -3,6 +3,7 @@ from django.db.models import *
 from django.http import JsonResponse
 from .models import *
 import datetime
+from datetime import date
 from django.contrib.auth.decorators import login_required
 def report(request):
     return render(request, 'myapp/template/report/report.html')
@@ -34,15 +35,30 @@ def report_chart(request):
         data.append(w)
        
 
-    queryset1 = machine.objects.all()
+    queryset1 = subcity.objects.all()
     for i in queryset1:
-        label1.append(i.station_id.station_name)
-        data1.append(i.id)
+        label1.append(i.subcity_name)
+        data1.append(i.Number_Of_Station)
+
+
+    route_query=route.objects.all()
+    for x in route_query:
+       source=x.source.station_name
+       dest=x.destination.station_name
+       label=source+" to "+dest
+       today = date.today()
+       No_assign =  assign_vehicle.objects.filter(assign_date__year=today.year,assign_date__month=today.month,assign_date__day=today.day,source=source,destination=dest).count()
        
-    queryset2 = subcity.objects.all().order_by('-Number_Of_Station')
+       label2.append(label)
+       data2.append(No_assign)
+
+    
+    
+         
+    """ queryset2 = subcity.objects.all().order_by('-Number_Of_Station')
     for i in queryset2:
         label2.append(i.subcity_name)
-        data2.append(i.Number_Of_Station)
+        data2.append(i.Number_Of_Station)"""
 
     queryset3 = subcity.objects.all()
     for i in queryset3:
