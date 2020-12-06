@@ -54,8 +54,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'leaflet',
     "fcm_django",
-    'myapp',
+    'cityadmin',
     'accounts',
+    'Subcity',
   
 
 ]
@@ -99,7 +100,7 @@ WSGI_APPLICATION = 'evdc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'NAME':'evdc',
+        'NAME':'etvdc',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',

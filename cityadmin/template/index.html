@@ -1,0 +1,356 @@
+
+{%extends 'myapp/template/base_site.html'%}
+
+
+{% block content %}
+ 
+ <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+             
+              <p>
+                SUb city Admin
+                
+              </p>
+            </a>
+           
+          </li>
+          <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+              
+                  <p style="color: white;">
+                  Vehicle
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_vehicle_list' %}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                      <p>Vehicles list</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_vehicle_location' %}" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Vehicles location</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_vehicle_register' %}" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Vehicles register</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_Assigned_vehicle_list' %}" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Assigned Vehicles List</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              
+
+
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+              
+                  <p style="color: white;">
+                  Drivers
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_driver_list' %}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                      <p>Drivers list </p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_driver_register' %}" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Driver Register</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+              
+                  <p style="color: white;">
+                  Machine
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_machine_list' %}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Machines list</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Machines location</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_machine_register' %}" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Add machine</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_machine_data_list' %}" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>Machines Data</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+                  <p style="color: white;">
+                   Users
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'registerList' %}" class="nav-link">
+                     
+                      <p>list of users</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'register' %} "class="nav-link">
+                     
+                      <p>register user</p>
+                    </a>
+                  </li>
+                 
+                </ul>
+              </li>
+               
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+                  <p style="color: white;">
+                   Subcity
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_subcity_list' %}" class="nav-link">
+                     
+                      <p>list of Subcity</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_subcity_register' %} "class="nav-link">
+                     
+                      <p>Add Subcity</p>
+                    </a>
+                  </li>
+                 
+                </ul>
+              </li>
+               
+
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+                  <p style="color: white;">
+                   Stations
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_station_list' %}" class="nav-link">
+                     
+                      <p>list of Stations</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href=" {% url 'Subcity_station_register' %} "class="nav-link">
+                     
+                      <p>Add Station</p>
+                    </a>
+                  </li>
+                 
+                </ul>
+              </li>
+
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+                  <p style="color: white;">
+                   Routes
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_route_list' %}" class="nav-link">
+                     
+                      <p>list of Routes</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_route_register' %} "class="nav-link">
+                     
+                      <p>Add Route</p>
+                    </a>
+                  </li>
+                 
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+              
+                  <p style="color: white;">
+                  Deployment
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_deploy' %}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                      <p>deploy vehicle</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>view deployed vehicle</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                     <i class="far fa-circle nav-icon"></i>
+                      <p>update deployed vehicle</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+                  <p style="color: white;">
+                   Attendance
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_takeattendance' %}" class="nav-link">
+                     
+                      <p>take attendance</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_showattendance' %}" class="nav-link">
+                     
+                      <p>view attendance of vehicle</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+                
+                  <p style="color: white;">Penalty
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_showpenality' %}" class="nav-link">
+                     
+                      <p>view penalty status</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_takepenality' %}" class="nav-link">
+                     
+                      <p>register penalty status</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+
+              
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                   
+               <p style="color: white;">
+                   reports
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'Subcity_report' %}" class="nav-link">
+                     
+                      <p>view report</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                     
+                      <p>generate report</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+          
+         
+            <li class="nav-item">
+                  <a href="#" class="nav-link">
+                     
+                    <p style="color: white;">Waiting time</p>
+                  </a>
+              </li>
+              
+                </ul>
+             </li>
+          
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p>logout</p>
+            </a>
+          </li>
+        
+        </ul>
+
+      </nav>
+ 
+{% endblock %}

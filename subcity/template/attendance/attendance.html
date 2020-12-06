@@ -1,0 +1,58 @@
+
+{%extends 'myapp/template/index.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Routes lists </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                
+              
+               <tbody>
+                                                <tr>
+                                                    
+                                                    <th>driver</th>
+                                                    <th>date</th>
+                                                    <th>trip_no</th>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <form action="{% url 'showattendance' %}" method="GET" value="">
+                                                {% csrf_token %}
+                                                        
+                                                {% for i in show %}
+                                                <tr>
+                                                <td>{{i.driver}}</td>
+                                                <td>{{i.date}}</td>
+                                                <td>{{i.trip_no}}</td>
+                                                </tr>
+                                                {% endfor%}
+                                                
+                                                
+                                                
+                                                    </form>
+                                                    
+                                                    
+
+                                                </tr>
+
+                                            </tbody>
+                
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}
+   

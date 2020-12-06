@@ -1,0 +1,74 @@
+
+{%extends 'myapp/template/index.html'%}
+
+
+{% block content1 %}
+
+
+ 
+
+
+
+   <div class="row" style="margin-left: 100px;margin-top: 50px;">
+          <div class="col-md-8">
+
+
+         <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add route</h3>
+              </div>
+              <div class="card-body">
+                <!-- Color Picker -->
+                <form role="form" method='post'  action="{% url 'routeUpdate' route.id %}  "style="margin-top: 10px;">
+           {% csrf_token %}  
+  
+          <!-- left column -->
+      
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Source station id</label>
+                    <select class="form-control" id="sel1" placeholder="" name="source">
+                                      
+                        {%for i in station %}
+                                   
+                           <option>{{i.id}}</option>
+                       {% endfor %}
+                      </select>
+                                  
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Destination station id</label>
+                    <select class="form-control" id="sel1" placeholder="" name="destination">
+                    <{%for i in station %}
+                                   
+                           <option>{{i.id}}</option>
+                       {% endfor %}
+                      </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Length</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter length in km" name="length" value="{{route.length}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Route Type</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter length in km" name="route_type"value="{{route.route_type}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Price</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="price" name="price" value="{{route.price}}">
+                  </div>
+                 
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+        </div>
+
+</div>
+</div>
+
+
+{% endblock content1 %}
+   

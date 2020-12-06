@@ -18,7 +18,7 @@ from django.urls import path,include
 from django.conf.urls import url
 
 from rest_framework import routers
-from myapp import views,rest_api
+from cityadmin import views,rest_api
 
 
 router = routers.DefaultRouter()
@@ -32,14 +32,15 @@ router.register(r'deployment', rest_api.deploymentViewSet)
 router.register(r'attendance', rest_api.attendanceDataViewSet)
 router.register(r'penalty', rest_api.penaltyDataViewSet)
 router.register(r'station', rest_api.stationDataViewSet)
-
+router.register(r'vehicle_location', rest_api.vehicle_locationDataViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
     
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),
+    path('', include('cityadmin.urls')),
+    path('subcity/', include('subcity.urls')),
     path('', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('api/', include(router.urls)),

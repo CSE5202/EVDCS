@@ -1,0 +1,66 @@
+
+{%extends 'myapp/template/index.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">User lists </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>id</th>
+                  <th>fistname</th>
+                  <th>lastname</th>
+                  <th>sex</th>
+                  <th>sex</th>
+                 <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for p in profile %}
+              {% for d in driver %}
+                <tr>
+                    <td>{{p.id}}</td>
+                    <td>{{p.first_name}}</td>
+                    <td>{{p.phone}}</td>
+                    <td>{{p.sex}}</td>
+          
+            
+                <td>{{d.driver_licence}}</td>
+
+                    <td>
+                <a href="#" class="btn btn-warning">Edit</a>
+               <a href="#" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?') ">Delete</a>
+                    </td>
+                </tr>
+                  {% endfor %}
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                  <tr>
+                  <th>id</th>
+                  <th>fistname</th>
+                  <th>lastname</th>
+                  <th>sex</th>
+                 <th>Action</th>
+                </tr>
+
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}
+   

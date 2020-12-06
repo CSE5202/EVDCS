@@ -1,0 +1,71 @@
+
+{%extends 'myapp/template/index.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">vehicles list </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+               <th>id</th>
+                  <th>Vehicle Name</th>
+                  <th>Driver id</th>
+                  <th>Plate No</th>
+                  <th>Model</th>
+                 <th>subcity id</th>
+                 <th>Vehicle Size</th>
+                 <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+               {%for v in vehicle%}
+                <tr>
+                    <td>{{v.id}}</td>
+                     <td>{{v.vehicle_name}}</td>
+                    <td>{{v.driver}}</td>
+                    <td>{{v.plate_no}}</td>
+                       <td>{{v.model}}</td>
+                    <td>{{v.subcity}}</td>
+                   <td>{{v.vehicle_size}}</td>
+
+                    <td>
+                <a href="{% url 'Subcity_vehicle_register' %}" ><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></i></a>
+                <a href="{% url 'Subcity_vehicleEdit' v.id %}" ><i style="color: orange;"class="fas fa-edit fa-lg"></i></a>
+               <a href="{% url 'Subcity_vehicleDelete' v.id %}"  onclick="return confirm('Are you sure?') "><i class="fa fa-trash fa-lg" aria-hidden="true" style="color: red;"></i></a>
+                    </td>
+                </tr>
+                
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                  <tr>
+               <th>id</th>
+                  <th>Vehicle Name</th>
+                  <th>Driver id</th>
+                  <th>Plate No</th>
+                  <th>Model</th>
+                 <th>subcity id</th>
+                 <th>Vehicle Size</th>
+                 <th>Action</th>
+                </tr>
+
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}
+   

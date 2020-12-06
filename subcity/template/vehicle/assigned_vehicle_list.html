@@ -1,0 +1,74 @@
+
+{%extends 'myapp/template/index.html'%}
+
+
+{% block content1 %}
+ 
+ <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Routes lists </h3>
+            </div>
+            <!-- /.card-header -->
+             <div>        <!-- /.card-header -->
+             
+                  {% include "registration/messages.html" %}
+ 
+              </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Vehicle Id</th>
+                 <th>length</th>
+                 <th>price</th>
+                 <th>status</th>
+                  <th>Assigned Date</th>
+                 <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+               {%for r in assign_vehicle%}
+                <tr>
+                    <td>{{r.id}}</td>
+                     <td>{{r.source}}</td>
+                     <td>{{r.destination}}</td>
+                    <td>{{r.vehicles_id}}</td>
+                   <td>{{r.length}}</td>
+                   <td>{{r.price}}</td>
+                   <td>{{r.status}}</td>
+                   <td>{{r.assign_date}}</td>
+                   
+                   
+                      <td>
+               <a href="{% url 'Subcity_vehicle_register' %}" ><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+                <a href="{% url 'Subcity_vehicleEdit' r.id %}" ><i style="color: orange;"class="fas fa-edit fa-lg"></i></a>
+               <a href="{% url 'Subcity_vehicleDelete' r.id %}"  onclick="return confirm('Are you sure?') "><i style="color: red;"class="fa fa-trash fa-lg" ></i></a>
+                    </td>
+                </tr>
+                
+             {% endfor %}
+  
+                </tbody>
+                <tfoot>
+                  <tr>
+                  <th>id</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th>Vehicle Id</th>
+                 <th>length</th>
+                 <th>price</th>
+                 <th>status</th>
+                <th>Assigned Date</th>
+                 <th>Actions</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+{% endblock content1 %}
+   
